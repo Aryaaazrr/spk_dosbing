@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ForgotController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SignInController;
 use App\Http\Controllers\SignUpController;
@@ -22,3 +23,6 @@ Route::get('signin', [SignInController::class, 'index'])->name('signin');
 Route::post('signin', [SignInController::class, 'index']);
 
 Route::get('signup', [SignUpController::class, 'index'])->name('signup');
+Route::post('signup', [SignUpController::class, 'index']);
+
+Route::get('forgot', [ForgotController::class, 'index'])->name('forgot');

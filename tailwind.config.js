@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+    darkMode: ['selector', '[data-mode="dark"]'],
     content: [
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
@@ -11,10 +12,6 @@ export default {
             md: "768px",
             lg: "976px",
             xl: "1440px",
-        },
-        fontFamily: {
-            sans: ["Graphik", "sans-serif"],
-            serif: ["Merriweather", "serif"],
         },
         extend: {
             spacing: {

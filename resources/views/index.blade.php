@@ -86,13 +86,13 @@
             <div class="hidden sm:mb-8 sm:flex sm:justify-center">
                 <div
                     class="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                    Profil Program Studi Teknik Informatika <a href="https://jti.polije.ac.id/prodi/tif"
+                    Profil Program Studi Teknik Informatika. <a href="https://jti.polije.ac.id/prodi/tif"
                         class="font-semibold text-sky-400"><span class="absolute inset-0" aria-hidden="true"></span>Read
-                        more <span aria-hidden="true">&rarr;</span></a>
+                        more <span aria-hidden="true">→</span></a>
                 </div>
             </div>
             <div class="text-center">
-                <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">Sistem Pendukung Keputusan
+                <h1 class="text-3xl font-bold tracking-tight text-gray-900 lg:text-5xl">Sistem Pendukung Keputusan
                     Pemilihan Dosen Pembimbing Skripsi D4-Teknik Informatika Menggunakan Metode Profile Matching
                 </h1>
                 <p class="mt-6 text-lg leading-8 text-gray-600">Sistem ini dirancang untuk memudahkan pemilihan dosen

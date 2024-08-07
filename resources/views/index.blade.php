@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.home')
 
 @section('title', 'SPK Pemilhan Dosen Pembimbing')
 
@@ -86,9 +86,7 @@
             <div class="hidden sm:mb-8 sm:flex sm:justify-center">
                 <div
                     class="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                    Profil Program Studi Teknik Informatika. <a href="https://jti.polije.ac.id/prodi/tif"
-                        class="font-semibold text-sky-400"><span class="absolute inset-0" aria-hidden="true"></span>Read
-                        more <span aria-hidden="true">→</span></a>
+                    Profil Program Studi D4-Teknik Informatika
                 </div>
             </div>
             <div class="text-center">

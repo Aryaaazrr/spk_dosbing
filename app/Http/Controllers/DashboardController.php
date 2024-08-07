@@ -2,18 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class SignInController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('auth.signin');
+        return view('pages.dashboard.index');
     }
 
     /**
@@ -29,27 +27,7 @@ class SignInController extends Controller
      */
     public function store(Request $request)
     {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ], [
-            'email.required' => 'Email harus diisi.',
-            'password.required' => 'Kata sandi harus diisi.',
-        ]);
-
-        $registeredUser = User::where('email', $request->email)->first();
-
-        if ($registeredUser) {
-            if (Auth::attempt($credentials)) {
-                $request->session()->regenerate();
-
-                return redirect('dashboard');
-            } else {
-                return back()->withInput()->withErrors(['error' => 'Email dan Password yang dimasukkan tidak sesuai']);
-            }
-        }
-
-        return back()->withInput()->withErrors(['error' => 'Akun tidak ditemukan!']);
+        //
     }
 
     /**

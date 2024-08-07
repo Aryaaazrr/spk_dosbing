@@ -1,4 +1,5 @@
 import "./bootstrap";
+import 'flowbite';
 
 if (
     localStorage.theme === "dark" ||

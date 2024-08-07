@@ -1,10 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-    darkMode: ['selector', '[data-mode="dark"]'],
+    darkMode: ["selector", '[data-mode="dark"]'],
     content: [
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
+        "./node_modules/flowbite/**/*.js",
     ],
     theme: {
         screens: {
@@ -21,7 +22,16 @@ export default {
             borderRadius: {
                 "4xl": "2rem",
             },
+            colors: {
+                primary: "#1570EF",
+                secondary: "#707EAE",
+                hover: "#7E3F22",
+                dark: "#18181b",
+                navy: "#1B2559  ",
+                tosca: "rgba(95, 211, 208, 0.15)",
+                grey: "#F6F6F6",
+            },
         },
     },
-    plugins: [require("@tailwindcss/forms")],
+    plugins: [require("@tailwindcss/forms"), require("flowbite/plugin")],
 };

@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('guest')->group(function () {
+Route::middleware('guest')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('index');
 
     Route::get('signin', [SignInController::class, 'index'])->name('signin');
@@ -30,4 +30,4 @@ use Illuminate\Support\Facades\Route;
     Route::get('forgot', [ForgotController::class, 'index'])->name('forgot');
 
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
-// });
+});

@@ -1,5 +1,5 @@
 {{-- icon tab --}}
-<link rel="icon" type="image/png" sizes="56x56" href="{{ asset('storage/' . $basicInfo->logo ?? '') }}">
+{{-- <link rel="icon" type="image/png" sizes="56x56" href="{{ asset('storage/' . $basicInfo->logo ?? '') }}"> --}}
 {{-- tailwind --}}
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 {{-- font --}}

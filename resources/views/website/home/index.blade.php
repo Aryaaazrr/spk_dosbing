@@ -23,10 +23,11 @@
                 <p class="mt-6 text-lg leading-8 text-gray-600">Sistem ini dirancang untuk memudahkan pemilihan dosen
                     pembimbing bagi mahasiswa, memastikan kesesuaian antara topik skripsi dan bidang keahlian dosen.</p>
                 <div class="mt-10 flex items-center justify-center gap-x-6">
-                    <a href="{{ route('signin') }}"
+                    <a href="{{ route('auth.index') }}"
                         class="rounded-md bg-sky-400 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600">Get
                         started</a>
-                    <a href="https://jti.polije.ac.id/" class="text-sm font-semibold leading-6 text-gray-900">Learn
+                    <a href="https://jti.polije.ac.id/" target="_blank"
+                        class="text-sm font-semibold leading-6 text-gray-900">Learn
                         more <span aria-hidden="true">→</span></a>
                 </div>
             </div>

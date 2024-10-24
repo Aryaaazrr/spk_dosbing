@@ -1,10 +1,8 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ForgotController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\SignInController;
-use App\Http\Controllers\SignUpController;
+use App\Http\Controllers\Website\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,13 +19,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('guest')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('index');
 
-    Route::get('signin', [SignInController::class, 'index'])->name('signin');
-    Route::post('signin', [SignInController::class, 'show']);
-
-    Route::get('signup', [SignUpController::class, 'index'])->name('signup');
-    Route::post('signup', [SignUpController::class, 'index']);
-
-    Route::get('forgot', [ForgotController::class, 'index'])->name('forgot');
-
-    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::prefix('auth')->name('auth.')->group(function () {
+        Route::get('sign-in', [AuthController::class, 'index'])->name('index');
+        Route::get('sign-up', [AuthController::class, 'create'])->name('create');
+        Route::get('forgot', [AuthController::class, 'edit'])->name('edit');
+    });;
 });
+
+Route::middleware('auth')->name('user.')->group(function () {});
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+require __DIR__ . '/admin.php';

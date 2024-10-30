@@ -26,7 +26,8 @@ Route::middleware('guest')->group(function () {
     });;
 });
 
-Route::middleware('auth')->name('user.')->group(function () {});
-Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::middleware('auth')->name('user.')->group(function () {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
 
 require __DIR__ . '/admin.php';

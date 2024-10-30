@@ -12,7 +12,8 @@
         "guzzlehttp/guzzle": "^7.9.2",
         "laravel/framework": "^11.28.1",
         "laravel/sanctum": "^4.0",
-        "laravel/tinker": "^2.10.0"
+        "laravel/tinker": "^2.10.0",
+        "spatie/laravel-permission": "^6.9"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.14",

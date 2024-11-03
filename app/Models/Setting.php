@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Setting extends Model
 {
+    public const TITLE = 'title';
+    public const KEYWORD = 'keyword';
+    public const DESCRIPTION = 'description';
+    public const LOGO = 'logo';
+    protected $table = 'tbl_setting';
+
     protected $fillable = [
         'key',
         'locale',

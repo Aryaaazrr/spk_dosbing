@@ -1,8 +1,8 @@
 <meta charset="utf-8">
-{{-- <meta name="keywords" content="{{ $basicInfo->keyword ?? '' }}"> --}}
+<meta name="keywords" content="{{ $basicInfo->keyword ?? '' }}">
 <meta name="author" content="achmadzakariya.my.id">
-{{-- <meta name="description" content="{{ $basicInfo->description ?? '' }}">
-<meta name='og:image' content="{{ asset('storage/' . $basicInfo->logo ?? '') }}"> --}}
+<meta name="description" content="{{ $basicInfo->description ?? '' }}">
+<meta name='og:image' content="{{ asset('storage/' . $basicInfo->logo ?? '') }}">
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- For IE -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,4 +16,4 @@
 <!-- iOS Safari -->
 <meta name="apple-mobile-web-app-status-bar-style" content="#fff">
 {{-- title --}}
-<title>@yield('title') - </title>
+<title>@yield('title') - {{ $basicInfo->title }} </title>

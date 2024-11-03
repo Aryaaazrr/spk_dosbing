@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('tbl_users', function (Blueprint $table) {
             $table->id('id_user');
-            $table->string('username');
+            $table->string('name');
+            $table->string('email');
             $table->string('password');
+            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

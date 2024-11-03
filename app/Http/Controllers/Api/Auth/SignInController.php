@@ -3,47 +3,50 @@
 namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\Auth\SignInRequest;
 
 class SignInController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Sign in a User.
+     *
+     * @param  SignInRequest  $request
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function index()
+    public function signin(SignInRequest $request)
     {
-        //
+        $credentials = $request->only('email', 'password');
+
+        if (!$token = auth()->attempt($credentials)) {
+            return response()->json(['error' => 'Invalid email or password.'], 401);
+        }
+
+        return $this->respondWithToken($token);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Refresh a token.
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Request $request)
+    public function refresh()
     {
-        //
+        return $this->respondWithToken(auth()->refresh());
     }
 
     /**
-     * Display the specified resource.
+     * Get the token array structure.
+     *
+     * @param  string $token
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function show(string $id)
+    protected function respondWithToken($token)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => auth()->factory()->getTTL() * 60
+        ]);
     }
 }

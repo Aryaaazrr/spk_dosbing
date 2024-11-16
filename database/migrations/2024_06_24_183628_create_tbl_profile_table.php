@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tbl_profile', function (Blueprint $table) {
-            $table->id('id_profile');
-            $table->unsignedBigInteger('id_alternatif');
+            $table->uuid('id_profile')->primary();
+            $table->uuid('id_alternatif');
             $table->foreign('id_alternatif')->references('id_alternatif')->on('tbl_alternatif')->onUpdate('cascade')->onDelete('cascade');
-            $table->unsignedBigInteger('id_kriteria');
+            $table->uuid('id_kriteria');
             $table->foreign('id_kriteria')->references('id_kriteria')->on('tbl_kriteria')->onUpdate('cascade')->onDelete('cascade');
-            $table->unsignedBigInteger('id_subkriteria');
+            $table->uuid('id_subkriteria');
             $table->foreign('id_subkriteria')->references('id_subkriteria')->on('tbl_subkriteria')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tbl_aspek', function (Blueprint $table) {
-            $table->id('id_aspek');
+            $table->uuid('id_aspek')->primary();
             $table->string('kode_aspek')->unique();
             $table->string('aspek_name')->unique();
             $table->float('persentase', 3, 2);

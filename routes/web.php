@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\Dashboard\DashboardController;
 use App\Http\Controllers\Website\Auth\AuthController;
+use App\Http\Controllers\Website\Home\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*

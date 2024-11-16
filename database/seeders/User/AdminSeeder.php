@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class AdminSeeder extends Seeder
 {
@@ -19,6 +20,7 @@ class AdminSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         $admin = User::firstOrCreate([
+            'id_user' => Str::uuid(),
             'name' => 'admin',
             'email' => 'admin@gmail.com',
             'password' => bcrypt('p4ssword'),

@@ -3,9 +3,9 @@
 namespace Database\Seeders\User;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class UserSeeder extends Seeder
 {
@@ -28,6 +28,7 @@ class UserSeeder extends Seeder
 
     $raws->each(function ($_raw) {
       $mahasiswa = User::firstOrCreate([
+        'id_user' => Str::uuid(),
         'name' => $_raw->name,
       ], [
         ...$_raw->toArray(),

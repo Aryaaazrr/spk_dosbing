@@ -22,9 +22,9 @@ class User extends Authenticatable implements JWTSubject
      * @var array<int, string>
      *
      */
-    protected $guard = 'admin';
-
     protected $table = 'tbl_users';
+
+    protected $primaryKey = 'user_id';
 
     protected $fillable = [
         'name',

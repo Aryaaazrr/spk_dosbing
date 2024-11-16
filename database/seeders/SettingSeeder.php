@@ -42,7 +42,10 @@ class SettingSeeder extends Seeder
             ],
             [
                 'key' => 'privacy_policy',
-                'value' => '<p><strong>Saibah Mulia Mandiri</strong> built the Saibah app as a Commercial app. This SERVICE is provided by Saibah Mulia Mandiri and is intended for use as is.</p>
+                'value' => '<p><strong>
+                             Pendukung Keputusan Pemilihan Dosen Pembimbing Skripsi D4-Teknik Informatika Menggunakan Metode Profile Matching
+                             </strong>
+                            built the SPK app as a Commercial app. This SERVICE is provided by Achmad Zakariya and is intended for use as is.</p>
                             <p><br></p>
                             <p>This page is used to inform visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service.</p>
                             <p><br></p>
@@ -61,7 +64,7 @@ class SettingSeeder extends Seeder
                             <p>Link to privacy policy of third party service providers used by the app</p>
                             <ul>
                                 <li>Google Play Services</li>
-                                <li>Facebook</li>
+                                <li>Google</li>
                             </ul>
                             <p><br></p>
                             <p><strong>Log Data</strong></p>
@@ -76,29 +79,16 @@ class SettingSeeder extends Seeder
                 'key' => 'email_setting',
                 'json_value' => json_encode([
                     'logo' => '',
-                    'footer' => '<p>Kantor Pusat Semarang: Jl. Hasanudin no. 243 B Semarang 50171, Indonesia</p>',
-                    'salutation' => "Salam,\r\nPrayudi"
+                    'footer' => '<p>Mahasiswa Politeknik Negeri Jember, Jawa Timur, Indonesia</p>',
+                    'salutation' => "Salam,\r\nAchmad Zakariya"
                 ])
             ],
             [
-                'key' => 'email_invitation',
+                'key' => 'email_registration',
                 'json_value' => json_encode([
-                    'from' => 'info.saibah@gmail.com',
-                    'first_message' => '<p><strong>Assalamualaikum</strong>,</p><p>Terimakasih telah mendaftar menjadi calon PIC saibah Umrah, untuk menjadi PIC saibah umrah diharapkan bapak/ibu berkenana mengikuti pelatihan menjadi PIC agar mengetahui aturan main menjadi seorang PIC, di sana juga akan kami jelaskan terkait promo, bonus, dan segala alat pendukung yang membantu Anda untuk menjalankan tugas sebagai seorang PIC.</p><p>Kami mengundang Anda hadir dalam acara:</p>'
+                    'from' => 'info.spk-dosbing-profile-matching@gmail.com',
+                    'first_message' => '<p><strong>Assalamualaikum</strong>,</p><p>Terimakasih telah mendaftar di platform ini. untuk melakukan proses sistem diharapkan mahasiswa berkenanan mengisi data pribadi guna kelengkapan data pada sistem, sehingga dapat dilakukan proses pemilihan dosen pembimbing dan pengajuan judul anda berjalan dengan lancar.</p><p>Terima Kasih</p>'
                 ])
-            ]
-        ]);
-
-        DB::table('tbl_setting')->insert([
-            [
-                'key' => 'minimum_first_payment',
-                'value' => '1000000',
-                'additional_value' => 'umrah'
-            ],
-            [
-                'key' => 'minimum_first_payment',
-                'value' => '2000000',
-                'additional_value' => 'hajj'
             ]
         ]);
     }

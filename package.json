@@ -25,6 +25,7 @@
         "@babel/core": "^7.26.0",
         "@babel/preset-env": "^7.26.0",
         "@inertiajs/react": "^1.2.0",
-        "flowbite": "^2.5.2"
+        "flowbite": "^2.5.2",
+        "lucide-react": "^0.460.0"
     }
 }

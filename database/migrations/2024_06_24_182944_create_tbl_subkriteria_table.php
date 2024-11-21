@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('id_kriteria')->references('id_kriteria')->on('tbl_kriteria')->onUpdate('cascade')->onDelete('cascade');
             $table->string('subkriteria_name');
             $table->float('nilai');
+            $table->enum('factor', ['Core', 'Secondary']);
             $table->timestamps();
             $table->softDeletes();
         });

@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('kode_aspek')->unique();
             $table->string('aspek_name')->unique();
             $table->float('persentase', 3, 2);
-            $table->enum('factor', ['Core', 'Secondary']);
             $table->string('keterangan');
             $table->timestamps();
             $table->softDeletes();

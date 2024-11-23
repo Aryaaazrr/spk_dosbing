@@ -36,7 +36,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-            \App\Http\Middleware\ShareVariable::class,
+            // \App\Http\Middleware\ShareVariable::class,
             \App\Http\Middleware\HandleInertiaRequests::class
         ],
 
@@ -47,7 +47,7 @@ class Kernel extends HttpKernel
         ],
 
         'admin' => [
-            \App\Http\Middleware\ShareVariable::class
+            // \App\Http\Middleware\ShareVariable::class
         ]
     ];
 

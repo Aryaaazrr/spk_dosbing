@@ -17,6 +17,7 @@ class RoleAndPermissionSeeder extends Seeder
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
         $permissionNames = [
+            'register-mahasiswa',
             'login-admin',
             'login-mahasiswa',
             'aspek-create',
@@ -66,6 +67,13 @@ class RoleAndPermissionSeeder extends Seeder
 
             if ($role->name === 'admin') {
                 $permissions = Permission::where('name', 'login-admin')->get();
+                foreach ($permissions as $permission) {
+                    $role->permissions()->attach($permission->uuid);
+                }
+            }
+
+            if ($role->name === 'mahasiswa') {
+                $permissions = Permission::where('name', 'login-mahasiswa')->get();
                 foreach ($permissions as $permission) {
                     $role->permissions()->attach($permission->uuid);
                 }

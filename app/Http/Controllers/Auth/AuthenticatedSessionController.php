@@ -13,6 +13,10 @@ use Inertia\Response;
 
 class AuthenticatedSessionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('login-mahasiswa');
+    }
     /**
      * Display the login view.
      */
@@ -32,6 +36,16 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+
+        $user = Auth::user();
+
+        if ($user->hasRole('admin')) {
+            return redirect()->route('admin.dashboard');
+        } elseif ($user->hasRole('mahasiswa')) {
+            return redirect()->route('mahasiswa.dashboard');
+        } else {
+            return redirect()->route('home');
+        }
 
         return redirect()->intended(route('dashboard', absolute: false));
     }

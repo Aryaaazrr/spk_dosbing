@@ -28,7 +28,6 @@ class UserSeeder extends Seeder
 
     $raws->each(function ($_raw) {
       $mahasiswa = User::firstOrCreate([
-        'id_user' => Str::uuid(),
         'name' => $_raw->name,
       ], [
         ...$_raw->toArray(),
@@ -36,6 +35,21 @@ class UserSeeder extends Seeder
       ]);
 
       $mahasiswa->assignRole(User::ROLE_MAHASISWA);
+
+      $mahasiswaPermissions = [
+        'register-mahasiswa',
+        'login-mahasiswa',
+        'pengajuan-create',
+        'pengajuan-read',
+        'pengajuan-update',
+        'pengajuan-delete',
+        'pemilihan-dosen-create',
+        'pemilihan-dosen-read',
+        'pemilihan-dosen-update',
+        'pemilihan-dosen-delete',
+    ];
+
+    $mahasiswa->givePermissionTo($mahasiswaPermissions);
     });
     }
 }

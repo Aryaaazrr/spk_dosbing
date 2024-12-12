@@ -15,7 +15,6 @@ class SettingSeeder extends Seeder
     {
         DB::table('tbl_setting')->insert([
             [
-                'id_setting' => Str::uuid(),
                 'key' => 'about_us',
                 'value' => '<p><em>Assalamu‘alaikum warohmatullahi wabarokatuh</em></p>
                             <p><br></p>
@@ -42,7 +41,6 @@ class SettingSeeder extends Seeder
                             <p>E mail : admin@saibah.co.id</p>'
             ],
             [
-                'id_setting' => Str::uuid(),
                 'key' => 'privacy_policy',
                 'value' => '<p><strong>
                              Pendukung Keputusan Pemilihan Dosen Pembimbing Skripsi D4-Teknik Informatika Menggunakan Metode Profile Matching
@@ -78,7 +76,6 @@ class SettingSeeder extends Seeder
 
         DB::table('tbl_setting')->insert([
             [
-                'id_setting' => Str::uuid(),
                 'key' => 'email_setting',
                 'json_value' => json_encode([
                     'logo' => '',
@@ -87,7 +84,6 @@ class SettingSeeder extends Seeder
                 ])
             ],
             [
-                'id_setting' => Str::uuid(),
                 'key' => 'email_registration',
                 'json_value' => json_encode([
                     'from' => 'info.spk-dosbing-profile-matching@gmail.com',

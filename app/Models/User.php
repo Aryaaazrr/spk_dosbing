@@ -24,28 +24,16 @@ class User extends Authenticatable
      * @var array<int, string>
      *
      */
-    public $incrementing = false;
 
     protected $table = 'tbl_users';
 
     protected $primaryKey = 'id_user';
-
-    protected $keyType = 'string';
 
     protected $fillable = [
         'name',
         'email',
         'password',
     ];
-
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($model) {
-            $model->id_user = Str::uuid();
-        });
-    }
 
     /**
      * The attributes that should be hidden for serialization.

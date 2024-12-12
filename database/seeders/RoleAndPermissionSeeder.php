@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Str;
@@ -14,12 +16,46 @@ class RoleAndPermissionSeeder extends Seeder
      */
     public function run(): void
     {
-        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
+        Schema::disableForeignKeyConstraints();
 
-        $permissionNames = [
+        Role::truncate();
+        Permission::truncate();
+        DB::table('tbl_model_has_roles')->truncate();
+        DB::table('tbl_model_has_permissions')->truncate();
+        DB::table('tbl_role_has_permissions')->truncate();
+
+        $roles = ['admin', 'mahasiswa'];
+
+        foreach ($roles as $role) {
+            Role::create(['name' => $role]);
+        }
+
+        $adminAccessPermission = Permission::create(['name' => 'admin panel access']);
+
+        $adminRole = Role::where(['name' => 'admin'])->first();
+        $adminAccessPermission->assignRole($adminRole);
+
+        $mahasiswaRole = Role::where(['name' => 'mahasiswa'])->first();
+        $mahasiswaPermission = [
             'register-mahasiswa',
-            'login-admin',
             'login-mahasiswa',
+            'pengajuan-create',
+            'pengajuan-read',
+            'pengajuan-update',
+            'pengajuan-delete',
+            'pemilihan-dosen-create',
+            'pemilihan-dosen-read',
+            'pemilihan-dosen-update',
+            'pemilihan-dosen-delete',
+        ];
+
+        foreach ($mahasiswaPermission as $permissionName) {
+            $permission = Permission::create(['name' => $permissionName]);
+            $mahasiswaRole->givePermissionTo($permission);
+        }
+
+        $otherPermissions = [
+            'login-admin',
             'aspek-create',
             'aspek-read',
             'aspek-update',
@@ -40,52 +76,16 @@ class RoleAndPermissionSeeder extends Seeder
             'mahasiswa-read',
             'mahasiswa-update',
             'mahasiswa-delete',
-            'pengajuan-create',
-            'pengajuan-read',
-            'pengajuan-update',
-            'pengajuan-delete',
-            'pemilihan-dosen-create',
-            'pemilihan-dosen-read',
-            'pemilihan-dosen-update',
-            'pemilihan-dosen-delete',
             'setting-update',
             'website-update',
         ];
 
-        app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
-
-        $roleNames = [
-            'admin',
-            'mahasiswa',
-        ];
-
-        foreach ($roleNames as $name) {
-            $role = Role::firstOrCreate(
-                ['name' => $name],
-                ['uuid' => Str::uuid()]
-            );
-
-            if ($role->name === 'admin') {
-                $permissions = Permission::where('name', 'login-admin')->get();
-                foreach ($permissions as $permission) {
-                    $role->permissions()->attach($permission->uuid);
-                }
-            }
-
-            if ($role->name === 'mahasiswa') {
-                $permissions = Permission::where('name', 'login-mahasiswa')->get();
-                foreach ($permissions as $permission) {
-                    $role->permissions()->attach($permission->uuid);
-                }
-            }
+        foreach ($otherPermissions as $permissionName) {
+            $permission = Permission::create(['name' => $permissionName]);
         }
 
-        foreach ($permissionNames as $name) {
-            Permission::firstOrCreate(
-                ['name' => $name],
-                ['uuid' => Str::uuid()]
-            );
-        }
+        $adminRole->givePermissionTo(Permission::all());
 
+        Schema::enableForeignKeyConstraints();
     }
 }

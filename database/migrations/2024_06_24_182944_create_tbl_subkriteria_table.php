@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tbl_subkriteria', function (Blueprint $table) {
-            $table->uuid('id_subkriteria')->primary();
-            $table->uuid('id_kriteria');
+            $table->id('id_subkriteria');
+            $table->unsignedBigInteger('id_kriteria');
             $table->foreign('id_kriteria')->references('id_kriteria')->on('tbl_kriteria')->onUpdate('cascade')->onDelete('cascade');
             $table->string('subkriteria_name');
             $table->float('nilai');

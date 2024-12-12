@@ -7,25 +7,16 @@ use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
-use Inertia\Response;
+use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('login-mahasiswa');
-    }
     /**
      * Display the login view.
      */
-    public function create(): Response
+    public function create(): View
     {
-        return Inertia::render('Auth/Login', [
-            'canResetPassword' => Route::has('password.request'),
-            'status' => session('status'),
-        ]);
+        return view('auth.login');
     }
 
     /**
@@ -36,16 +27,6 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
-
-        $user = Auth::user();
-
-        if ($user->hasRole('admin')) {
-            return redirect()->route('admin.dashboard');
-        } elseif ($user->hasRole('mahasiswa')) {
-            return redirect()->route('mahasiswa.dashboard');
-        } else {
-            return redirect()->route('home');
-        }
 
         return redirect()->intended(route('dashboard', absolute: false));
     }

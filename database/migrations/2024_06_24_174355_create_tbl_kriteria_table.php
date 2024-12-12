@@ -12,14 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tbl_kriteria', function (Blueprint $table) {
-            $table->uuid('id_kriteria')->primary();
+            $table->id('id_kriteria');
             $table->string('kode_kriteria')->unique();
-            $table->uuid('id_aspek');
-            $table->foreign('id_aspek')
-                  ->references('id_aspek')
-                  ->on('tbl_aspek')
-                  ->onUpdate('cascade')
-                  ->onDelete('cascade');
+            $table->unsignedBigInteger('id_aspek');
+            $table->foreign('id_aspek')->references('id_aspek')->on('tbl_aspek')->onUpdate('cascade')->onDelete('cascade');
             $table->string('kriteria_name')->unique();
             $table->string('keterangan');
             $table->timestamps();

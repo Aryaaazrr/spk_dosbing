@@ -19,15 +19,6 @@ class Aspek extends Model
         'deleted_at' => 'datetime',
     ];
 
-    protected static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($model) {
-            $model->id_aspek = Str::uuid();
-        });
-    }
-
     public function kriteria()
     {
         return $this->hasMany(Kriteria::class, 'id_aspek', 'id_aspek');

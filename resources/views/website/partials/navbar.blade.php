@@ -24,7 +24,7 @@
             <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Bantuan</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="{{ route('auth.create') }}" class="text-sm font-semibold leading-6 text-gray-900">Sign in <span
+            <a href="{{ route('login') }}" class="text-sm font-semibold leading-6 text-gray-900">Sign in <span
                     aria-hidden="true">&rarr;</span></a>
         </div>
     </nav>
@@ -61,7 +61,7 @@
                             class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
                     </div>
                     <div class="py-6">
-                        <a href="{{ route('auth.index') }}"
+                        <a href="{{ route('login') }}"
                             class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Sign
                             in</a>
                     </div>

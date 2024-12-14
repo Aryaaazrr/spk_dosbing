@@ -26,7 +26,7 @@
                         <div class="flex items-center justify-between">
                             <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
                             <div class="text-sm">
-                                <a href="{{ route('auth.edit') }}" class="font-semibold text-sky-400 hover:text-sky-500">Forgot
+                                <a href="{{ route('password.request') }}" class="font-semibold text-sky-400 hover:text-sky-500">Forgot
                                     password?</a>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
 
                 <p class="mt-10 text-center text-sm text-gray-500">
                     Not a member?
-                    <a href="{{ route('auth.create') }}" class="font-semibold leading-6 text-sky-400 hover:text-sky-500">Sign
+                    <a href="{{ route('register') }}" class="font-semibold leading-6 text-sky-400 hover:text-sky-500">Sign
                         Up</a>
                 </p>
             </div>
